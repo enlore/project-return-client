@@ -10,7 +10,11 @@
     "build": "cross-env NODE_ENV=production browserify -g envify src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
   },
   "dependencies": {
-    "vue": "^2.0.1"
+    "node-sass": "^3.10.1",
+    "pug": "^2.0.0-beta6",
+    "vue": "^2.0.1",
+    "vue-router": "^2.0.1",
+    "vuex": "^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
