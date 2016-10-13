@@ -9,6 +9,7 @@
             "year": 1999
         }
     ],
+    "partTimeOnly": false,
     "hasDriversLicense": true,
     "industries": [],
     "abilities": [
