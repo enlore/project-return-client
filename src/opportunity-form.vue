@@ -17,6 +17,7 @@
 <script>
 import FormCard from './opportunity-form/form-card.vue'
 import FormCardConvictions from './opportunity-form/form-card-convictions.vue'
+import FormCardBoolean from './opportunity-form/form-card-boolean.vue'
 
 export default {
     data () {
@@ -38,7 +39,6 @@ export default {
                         "Arson"
                     ]
                 },
-
                 {
                     component: "form-card-convictions",
                     title: "Conviction History 2",
@@ -50,6 +50,16 @@ export default {
                         "Sex Offense",
                         "Theft",
                         "Arson"
+                    ]
+                },
+                {
+                    component: "form-card-boolean",
+                    title: "Driver's License",
+                    subTitle: "Do you have a driver's license?",
+                    type: "convictions",
+                    options: [
+                        "Yes",
+                        "No"
                     ]
                 }
             ]
@@ -64,7 +74,8 @@ export default {
 
     components: {
         'form-card': FormCard,
-        'form-card-convictions': FormCardConvictions
+        'form-card-convictions': FormCardConvictions,
+        'form-card-boolean': FormCardBoolean
     },
 
     methods: {
