@@ -1,1 +1,34 @@
 // here we be
+$deepBlue: #333366;
+
+html, body {
+    background-color: $deepBlue;
+    font-family: "Open Sans", sans-serif;
+}
+
+.btn {
+    margin-top: 32px;
+    width: 320px;
+    padding: 16px 10px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.btn--center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn--primary {
+    background-color: #FFCD32;
+    color: white;
+}
+
+// Util
+.u-text-center {
+    text-align: center;
+}
