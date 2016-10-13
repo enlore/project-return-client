@@ -1,6 +1,8 @@
 <template lang="pug">
     #app
         header-bar
+        .appBody
+            router-view
 </template>
 
 <script>
@@ -18,8 +20,16 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 body {
   font-family: Helvetica, sans-serif;
+}
+
+.appBody {
+    position: absolute;
+    top: 125px;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 </style>
