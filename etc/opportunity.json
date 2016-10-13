@@ -9,7 +9,7 @@
         "violence": false,
         "sex offense": false
     },
-    "partTimeOnly": true,
+    "partTimeAvailable": true,
     "industry": "Hospitality",
     "type": "PROe || referral",
     "schedule": "FT (7 to 4 on Tuesdays...)",
