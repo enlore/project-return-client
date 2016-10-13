@@ -1,16 +1,20 @@
-<template>
-  <div id="app">
-    <h1>{{ msg }}</h1>
-  </div>
+<template lang="pug">
+    #app
+        header-bar
 </template>
 
 <script>
+import Header from './header.vue'
+
 export default {
-  data () {
-    return {
-      msg: 'Hello Vue!'
+    data () {
+        return {
+        }
+    },
+
+    components: {
+        "header-bar": Header
     }
-  }
 }
 </script>
 
