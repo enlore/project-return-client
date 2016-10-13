@@ -2,20 +2,21 @@
     "id": "alskjdf",
     "salesForceId": "",
     "name": "",
-    "convictionRestrictions": [
-        {
-            "type": "drug",
-            "thresholdYears": 3
-        },
-        {
-            "type": "violent",
-            "thresholdYears": 4
-        }
-    ],
-    "industry": "",
+    "convictionThreshold": 7,
+    "convictionRestrictions": {
+        "drugs": true,
+        "arson": true,
+        "violence": false,
+        "sex offense": false
+    },
+    "industry": "Hospitality",
     "type": "PROe || referral",
     "schedule": "FT (7 to 4 on Tuesdays...)",
-    "abilities": [],
+    "requiredAbilities": [
+        "read a tape measure",
+        "stand for 10 hours",
+        "..."
+    ],
     "driversLicenseRequired": true,
     "hasOwnTransportation": false,
     "humanFriendly": {}

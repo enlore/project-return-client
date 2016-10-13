@@ -1,0 +1,17 @@
+{
+    "convictions": [
+        {
+            "type": "drugs",
+            "year": 2004
+        },
+        {
+            "type": "arson",
+            "year": 1999
+        }
+    ],
+    "hasDriversLicense": true,
+    "industries": [],
+    "abilities": [
+        "can stand for 10 hours"
+    ]
+}
