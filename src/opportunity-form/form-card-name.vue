@@ -10,21 +10,21 @@
                 h3 Coordinator
                 .formCard-inputGroup
                     label First
-                    input(type="text")
+                    input(type="text", v-model="cFirst")
 
                 .formCard-inputGroup
                     label Last
-                    input(type="text")
+                    input(type="text", v-model="cLast")
 
             .halfGroup
                 h3 Participant
                 .formCard-inputGroup
                     label First
-                    input(type="text")
+                    input(type="text", v-model="pFirst")
 
                 .formCard-inputGroup
                     label Last
-                    input(type="text")
+                    input(type="text", v-model="pLast")
 
         button.btn.btn--primary.btn--center(@click="nextCard") Next
 </template>
@@ -34,11 +34,35 @@ export default {
     data () {
         return {
             selection: [],
-            years: []
+            years: [],
+            cFirst: "",
+            cLast: "",
+            pFirst: "",
+            pLast: "",
         }
     },
 
+    watch: {
+        cFirst () {
+            this.doNameChange()
+        },
+
+        cLast () {
+            this.doNameChange()
+        },
+
+        pFirst () {
+            this.doNameChange()
+        },
+
+        pLast () {
+            this.doNameChange()
+
+        },
+    },
+
     props: [
+        "type",
         "index",
         "config",
         "title",
@@ -49,6 +73,15 @@ export default {
     },
 
     methods: {
+        doNameChange () {
+            this.$emit("formInput", {
+                type: this.type,
+                cFirst: this.cFirst,
+                cLast: this.cLast,
+                pFirst: this.pFirst,
+                pLast: this.pLast,
+            })
+        },
         nextCard () {
             this.$emit("nextCard", this.index)
         }

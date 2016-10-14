@@ -12,7 +12,9 @@
             :subTitle="cards[cardIndex].subTitle",
             :config="cards[cardIndex]",
             :index="cardIndex",
+            :type="cards[cardIndex].type",
             :options="criteria[cards[cardIndex].type] || cards[cardIndex].options",
+            @formInput="onInput",
             @nextCard="nextCard"
         )
 
@@ -147,6 +149,9 @@ export default {
     methods: {
         toggleYearSelect () {},
 
+        onInput (input) {
+            console.info(input)
+        },
 
         nextCard () { 
             let index = this.cardIndex
