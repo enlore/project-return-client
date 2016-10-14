@@ -16,7 +16,7 @@ const routes = [
         path: "/results",
         component: OppSummary
     },
-    { 
+    {
         path: "/opporunity/:id",
         component: OppDetail
     }
