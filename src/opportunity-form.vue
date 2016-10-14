@@ -9,7 +9,7 @@
             :config="cards[cardIndex]",
             :index="cardIndex",
             :options="cards[cardIndex].options",
-            @nextCard="nextCard",
+            @nextCard="nextCard"
         )
 
 </template>
@@ -18,6 +18,7 @@
 import FormCard from './opportunity-form/form-card.vue'
 import FormCardConvictions from './opportunity-form/form-card-convictions.vue'
 import FormCardBoolean from './opportunity-form/form-card-boolean.vue'
+import FormCardMulti from './opportunity-form/form-card-multi.vue'
 
 export default {
     data () {
@@ -61,6 +62,23 @@ export default {
                         "Yes",
                         "No"
                     ]
+                },
+                {
+                    component: "form-card-multi",
+                    title: "Driver's License",
+                    subTitle: "Do you have a driver's license?",
+                    type: "convictions",
+                    options: [
+                        "Caregiving",
+                        "Standing 8 hours",
+                        "Computer operations",
+                        "Customer service",
+                        "Forklift operations",
+                        "Heavy lifting",
+                        "Specialized tools operations",
+                        "Basic Math",
+                        "Outside work"
+                    ]
                 }
             ]
         }
@@ -75,7 +93,8 @@ export default {
     components: {
         'form-card': FormCard,
         'form-card-convictions': FormCardConvictions,
-        'form-card-boolean': FormCardBoolean
+        'form-card-boolean': FormCardBoolean,
+        'form-card-multi': FormCardMulti
     },
 
     methods: {
