@@ -3,19 +3,17 @@
     "salesForceId": "",
     "name": "",
     "convictionThreshold": 7,
-    "convictionRestrictions": {
-        "drugs": true,
-        "arson": true,
-        "violence": false,
-        "sex offense": false
-    },
+    "convictionRestrictions": [
+        "Drugs",
+        "Arson"
+    ],
     "partTimeAvailable": true,
     "industry": "Hospitality",
     "type": "PROe || referral",
     "schedule": "FT (7 to 4 on Tuesdays...)",
     "requiredAbilities": [
-        "read a tape measure",
-        "stand for 10 hours",
+        "Read a Tape Measure",
+        "Stand for 10 Hours",
         "..."
     ],
     "driversLicenseRequired": true,
@@ -23,19 +21,10 @@
         {
             "key": "Qualifications",
             "value": [
-                {
-                    "key": "Job Duties",
-                    "value": "Responsible for ..."
-                },
-                {
-                    "key": "Key Questions to Ask",
-                    "value": "1) Do you have ..."
-                }
+                { "key": "Job Duties", "value": "Responsible for ..." },
+                { "key": "Key Questions to Ask", "value": "1) Do you have ..." }
             ]
         },
-        {
-            "key": "Relevant Experience(s)",
-            "value": "machine operator ..."
-        }
+        { "key": "Relevant Experience(s)", "value": "machine operator ..." }
     ]
 }
