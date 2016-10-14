@@ -4,15 +4,12 @@
             h2.formCard-title  {{ title }}
             p.formCard-subTitle  {{ subTitle }}
 
-        .formCard-checklist
-            template(v-for="c in convictions")
-                .checklist-group
+        .formCard-multi
+            template(v-for="c in industries")
+                .multi-group
                     label()
                         input(type="checkbox", :value="c", v-model="selection")
                         span {{ c }}
-
-                    select(v-show="showYear(c)", v-model="years")
-                        option(v-for="n in 100", :value="2017 - n") {{ 2017 - n }}
 
         button.btn.btn--primary.btn--center(@click="nextCard") Next
 
@@ -20,8 +17,6 @@
 
 <script>
 import { mapState } from 'vuex'
-import ConvictionGroup from './conviction-group.vue'
-
 export default {
     data () {
         return {
@@ -39,17 +34,22 @@ export default {
         }
     },
 
+
     props: [
         "type",
         "index",
         "config",
-        "options",
         "title",
         "subTitle"
     ],
 
     computed: {
-        convictions: mapState(['convictions']).convictions
+        industries: mapState(['industries']).industries,
+        options: {
+            get () {
+                return this.config.options
+            }
+        }
     },
 
     methods: {
@@ -72,44 +72,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.formCard {
-    background-color: white;
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 36px 72px;
-    max-width: 800px;
-    margin-top: 32px;
-}
-
-.formCard-checklist {
-    margin-top: 32px;
-}
-
-.checklist-group {
+.formCard-multi {
     display: flex;
-    margin-top: 16px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 320px;
+    max-width: 620px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 400px;
-
+    margin-top: 32px;
 }
 
-.checklist-group input {
-    flex: 0 1 36px;
+.multi-group {
+    flex: 1 1 auto;
+    padding: 12px;
+    //text-align: center;
 }
 
-.checklist-group span {
-    margin-left: 16px;
+.multi-group label {
+    //text-align: center;
 }
 
-.checklist-group label {
-    flex: 0 1 150px;
+.multi-group label input {
 }
 
-.checklist-group select {
-    flex: 0 1 150px;
+.multi-group label span {
+    margin-left: 8px;
 }
-
 </style>
 

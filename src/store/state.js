@@ -3,5 +3,8 @@ export default {
         abilities: [],
         convictions: [],
         industries: []
-    } 
+    },
+    abilities: [],
+    convictions: [],
+    industries: []
 }

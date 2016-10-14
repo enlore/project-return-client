@@ -24,7 +24,18 @@ export default {
         }
     },
 
+    watch: {
+        selection () {
+            this.$emit("formInput", {
+                type: this.type,
+                data: this.selection
+            })
+        }
+    },
+
+
     props: [
+        "type",
         "index",
         "config",
         "title",

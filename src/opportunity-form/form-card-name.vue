@@ -76,10 +76,12 @@ export default {
         doNameChange () {
             this.$emit("formInput", {
                 type: this.type,
-                cFirst: this.cFirst,
-                cLast: this.cLast,
-                pFirst: this.pFirst,
-                pLast: this.pLast,
+                data: {
+                    cFirst: this.cFirst,
+                    cLast: this.cLast,
+                    pFirst: this.pFirst,
+                    pLast: this.pLast,
+                }
             })
         },
         nextCard () {

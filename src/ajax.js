@@ -1,7 +1,8 @@
 import _ from 'lodash'
 import superagent from 'superagent'
 
-const domain = "http://192.168.1.75"
+//const domain = "http://192.168.1.75"
+const domain = "http://107.170.48.47"
 
 const paths = {
     opps: `${domain}/opportunities`,

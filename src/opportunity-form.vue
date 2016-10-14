@@ -13,7 +13,7 @@
             :config="cards[cardIndex]",
             :index="cardIndex",
             :type="cards[cardIndex].type",
-            :options="criteria[cards[cardIndex].type] || cards[cardIndex].options",
+            :options="cards[cardIndex].options",
             @formInput="onInput",
             @nextCard="nextCard"
         )
@@ -28,16 +28,25 @@ import FormCard from './opportunity-form/form-card.vue'
 import FormCardConvictions from './opportunity-form/form-card-convictions.vue'
 import FormCardBoolean from './opportunity-form/form-card-boolean.vue'
 import FormCardMulti from './opportunity-form/form-card-multi.vue'
+import FormCardAbilities from './opportunity-form/form-card-abilities.vue'
+import FormCardIndustries from './opportunity-form/form-card-industries.vue'
 import FormCardName from './opportunity-form/form-card-name.vue'
 
-const mapped = mapState(['criteria'])
+const mapped = mapState(['criteria', 'abilities', 'convictions', 'industries'])
 
 export default {
     data () {
         return {
-            years: [],
-            convictions: [],
             cardIndex: 0,
+            searchCriteria: {
+                name: {},
+                convictions: [],
+                driversLicense: false,
+                abilities: [],
+                industry: [],
+                availability: false,
+
+            },
             cards: [
                 {
                     component: "form-card-name",
@@ -51,13 +60,6 @@ export default {
                     title: "Conviction History",
                     subTitle: "Which of the following have you been convicted of?",
                     type: "convictions",
-                    options: [
-                        "Violent Offense",
-                        "Drug Offense",
-                        "Sex Offense",
-                        "Theft",
-                        "Arson"
-                    ]
                 },
                 {
                     component: "form-card-boolean",
@@ -70,21 +72,10 @@ export default {
                     ]
                 },
                 {
-                    component: "form-card-multi",
+                    component: "form-card-abilities",
                     title: "Abilities",
                     subTitle: "Which of the following are you capable of?Which of the following are you capable of?",
                     type: "abilities",
-                    options: [
-                        "Caregiving",
-                        "Standing 8 hours",
-                        "Computer operations",
-                        "Customer service",
-                        "Forklift operations",
-                        "Heavy lifting",
-                        "Specialized tools operations",
-                        "Basic Math",
-                        "Outside work"
-                    ]
                 },
                 {
                     component: "form-card-boolean",
@@ -97,29 +88,16 @@ export default {
                     ]
                 },
                 {
-                    component: "form-card-multi",
+                    component: "form-card-industries",
                     title: "Industry",
                     subTitle: "Which of the following industries interest you?",
-                    type: "industry",
-                    options: [
-                        "Administrative",
-                        "Building Construction/Skilled Trade",
-                        "Creative/Design",
-                        "Education/Training",
-                        "Food Service",
-                        "Groundskeeping/Landscaping",
-                        "Housekeeping/Janitorial",
-                        "Logistics/Transportation",
-                        "Manufacturing/Productions/Operations",
-                        "Medical/Health",
-                        "Other",
-                        "Sales/Retail/Customer Service",
-                        "Security/Protective Services",
-                        "Installation/Maintenance"
-                    ]
+                    type: "industries",
                 }
             ]
         }
+    },
+
+    watch: {
     },
 
     computed: {
@@ -135,14 +113,15 @@ export default {
             return this.cardIndex < this.cards.length - 1;
         },
 
-        criteria: mapped.criteria
+        criteria: mapped.criteria,
     },
 
     components: {
         'form-card': FormCard,
         'form-card-convictions': FormCardConvictions,
         'form-card-boolean': FormCardBoolean,
-        'form-card-multi': FormCardMulti,
+        'form-card-industries': FormCardIndustries,
+        'form-card-abilities': FormCardAbilities,
         'form-card-name': FormCardName
     },
 
@@ -151,6 +130,7 @@ export default {
 
         onInput (input) {
             console.info(input)
+            this.searchCriteria[input.type] = input.data
         },
 
         nextCard () { 
