@@ -20,3 +20,10 @@ export function fetchOpps (ctx) {
         console.info(opps)
     })
 }
+
+export function fetchResults (ctx, query) {
+    postQuery(query, (err, opps) => {
+        console.info("results", opps)
+        ctx.commit("SET_RESULTS", opps)
+    })
+}

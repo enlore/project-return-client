@@ -35,3 +35,13 @@ export function getCriteria (cb) {
             else return cb(null, _.mapValues(resp.body.data, (criterionGroup) => _.keys(criterionGroup)))
         })
 }
+
+export function postQuery (query, cb) {
+    superagent.post(paths.oppsQuery)
+        .send(query)
+        .end((err, resp) => {
+            if (err) handleError(err)
+            else if (resp.body.exception) handleAPIException(resp.body.exception)
+            else return cb(null, resp.body.data)
+        })
+}

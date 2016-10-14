@@ -14,4 +14,8 @@ export default {
     SET_INDUSTRIES (state, industries) {
         state.industries = industries
     },
+
+    SET_RESULTS (state, results) {
+        state.results = result
+    }
 }

@@ -126,6 +126,11 @@ export default {
     },
 
     methods: {
+        postQuery () {
+            let query = this.searchCriteria;
+            this.$store.dispatch("fetchResults", query)
+        },
+
         toggleYearSelect () {},
 
         onInput (input) {
