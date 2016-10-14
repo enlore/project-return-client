@@ -1,6 +1,6 @@
 <template lang="pug">
     header.appHeader
-        img.headerLogo(src="//placehold.it/220x75?text=Project Return Logo")
+        img.headerLogo(src="/dist/img/project-return-logo.jpg")
         h1.appHeader-pageTitle Job Opportunity Matching
 </template>
 
@@ -40,6 +40,7 @@ $deepBlue: #333366;
 
 .headerLogo {
     height: 75px;
+    padding: 6px;
 }
 </style>
 
