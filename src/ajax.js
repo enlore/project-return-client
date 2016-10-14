@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import superagent from 'superagent'
 
 const domain = "http://192.168.1.75"
@@ -30,6 +31,6 @@ export function getCriteria (cb) {
         .end((err, resp) => {
             if (err) handleError(err)
             if (resp.body.exception) handleAPIException(resp.body.exception)
-            else return cb(null, resp.body.data)
+            else return cb(null, _.mapValues(resp.body.data, (criterionGroup) => _.keys(criterionGroup)))
         })
 }
