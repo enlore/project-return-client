@@ -1,3 +1,3 @@
-export default function SET_CRITERIA (state, criteria) {
+export function SET_CRITERIA (state, criteria) {
     state.criteria = criteria
 }
