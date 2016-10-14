@@ -79,6 +79,28 @@ export default {
                         "Basic Math",
                         "Outside work"
                     ]
+                },
+                {
+                    component: "form-card-multi",
+                    title: "Industry",
+                    subTitle: "Which of the following industries interest you?",
+                    type: "convictions",
+                    options: [
+                        "Administrative",
+                        "Building Construction/Skilled Trade",
+                        "Creative/Design",
+                        "Education/Training",
+                        "Food Service",
+                        "Groundskeeping/Landscaping",
+                        "Housekeeping/Janitorial",
+                        "Logistics/Transportation",
+                        "Manufacturing/Productions/Operations",
+                        "Medical/Health",
+                        "Other",
+                        "Sales/Retail/Customer Service",
+                        "Security/Protective Services",
+                        "Installation/Maintenance"
+                    ]
                 }
             ]
         }

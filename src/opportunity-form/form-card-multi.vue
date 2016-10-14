@@ -63,7 +63,11 @@ export default {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-height: 220px;
+    max-height: 320px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
 }
 
 .multi-group {
