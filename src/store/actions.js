@@ -7,7 +7,7 @@ export function fetchCriteria (ctx) {
     getCriteria((err, criteria) => {
 
         ctx.commit("SET_CRITERIA", criteria)
-        ctx.commit("SET_ABILITIES", criteria.actions)
+        ctx.commit("SET_ABILITIES", criteria.abilities)
         ctx.commit("SET_INDUSTRIES", criteria.industries)
         ctx.commit("SET_CONVICTIONS", criteria.convictions)
     })
