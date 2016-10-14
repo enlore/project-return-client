@@ -22,6 +22,7 @@ import FormCard from './opportunity-form/form-card.vue'
 import FormCardConvictions from './opportunity-form/form-card-convictions.vue'
 import FormCardBoolean from './opportunity-form/form-card-boolean.vue'
 import FormCardMulti from './opportunity-form/form-card-multi.vue'
+import FormCardName from './opportunity-form/form-card-name.vue'
 
 export default {
     data () {
@@ -30,6 +31,14 @@ export default {
             convictions: [],
             cardIndex: 0,
             cards: [
+                {
+                    component: "form-card-name",
+                    title: "Name",
+                    subTitle: "",
+                    type: "convictions",
+                    options: [
+                    ]
+                },
                 {
                     component: "form-card-convictions",
                     title: "Conviction History",
@@ -124,7 +133,8 @@ export default {
         'form-card': FormCard,
         'form-card-convictions': FormCardConvictions,
         'form-card-boolean': FormCardBoolean,
-        'form-card-multi': FormCardMulti
+        'form-card-multi': FormCardMulti,
+        'form-card-name': FormCardName
     },
 
     methods: {
