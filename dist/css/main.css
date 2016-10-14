@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box; }
+
 html, body {
   background-color: #333366;
   font-family: "Open Sans", sans-serif; }
@@ -76,3 +79,6 @@ html, body {
 
 .checklist-group select {
   flex: 0 1 150px; }
+
+.formCard-hint {
+  color: lightgrey; }
