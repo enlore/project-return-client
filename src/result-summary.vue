@@ -1,24 +1,78 @@
 <template lang="pug">
-    #component-root
+    #job-match-results
+        .jobMatchResults
+            .jobMatchResults-query
+                .jobMatchResults-header
+                    h2 Search Results
+                    p Click on any item to view more details about that opportunity.
+
+                .jobsMetchResults-section
+                    b Conviction History
+                    p Violent Offense in 2007
+
+                .jobsMetchResults-section
+                    b Abilities
+                    p Caregiving 
+                    p Specialized tools operations
+
+                .jobsMetchResults-section
+                    b Industry
+                    p Building Construction/Skilled Trade 
+                    p Manufacturing/Productions/Operations
+
+                .jobsMetchResults-section
+                    b Driver's License
+                    p Yes
+
+                .jobsMetchResults-section
+                    b Part Time Only
+                    p No
+
+            .jobMatchResults-rows
+                result-row(v-for="result in results",
+                    :result="result"
+                )
 </template>
 
 <script>
-export default {
-  data () {
-    return {
+    import ResultRow from './result-summary/result-row.vue'
 
+    export default {
+        data () {
+            return {
+                lastQuery: {
+
+                },
+                results: [
+                    { name: "A Job at this place" },
+                    { name: "A Job at this place" },
+                    { name: "A Job at this place" },
+                    { name: "A Job at this place" },
+                ]
+            }
+        },
+
+        components: {
+            'result-row': ResultRow
+        }
     }
-  },
-
-  /*created () {},*/
-  /*beforeCompile () {},*/
-  /*compiled () {},*/
-  /*ready () {},*/
-  /*beforeDestroy () {},*/
-  /*destroyed () {}*/
-}
 </script>
 
 <style lang="scss" scoped>
-</style>
+.jobMatchResults-query {
+    margin: 0 auto;
+    max-width: 1120px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 32px;
+}
 
+.jobMatchResults-header {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.jobMatchResults-rows {
+    margin-top: 32px;
+}
+</style>
