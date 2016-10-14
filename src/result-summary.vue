@@ -6,27 +6,28 @@
                     h2 Search Results
                     p Click on any item to view more details about that opportunity.
 
-                .jobsMetchResults-section
-                    b Conviction History
-                    p Violent Offense in 2007
+                .jobsMatchResults-queryParts
+                    .jobsMatchResults-section
+                        b Conviction History
+                        p Violent Offense in 2007
 
-                .jobsMetchResults-section
-                    b Abilities
-                    p Caregiving 
-                    p Specialized tools operations
+                    .jobsMatchResults-section
+                        b Abilities
+                        p Caregiving 
+                        p Specialized tools operations
 
-                .jobsMetchResults-section
-                    b Industry
-                    p Building Construction/Skilled Trade 
-                    p Manufacturing/Productions/Operations
+                    .jobsMatchResults-section
+                        b Industry
+                        p Building Construction/Skilled Trade 
+                        p Manufacturing/Productions/Operations
 
-                .jobsMetchResults-section
-                    b Driver's License
-                    p Yes
+                    .jobsMatchResults-section
+                        b Driver's License
+                        p Yes
 
-                .jobsMetchResults-section
-                    b Part Time Only
-                    p No
+                    .jobsMatchResults-section
+                        b Part Time Only
+                        p No
 
             .jobMatchResults-rows
                 result-row(v-for="result in results",
@@ -65,6 +66,18 @@
     background-color: white;
     border-radius: 5px;
     padding: 32px;
+}
+
+.jobsMatchResults-queryParts {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 32px auto 0;
+}
+
+.jobsMatchResults-section {
+    flex: 0 0 250px;
+    padding: 16px;
 }
 
 .jobMatchResults-header {
