@@ -1,5 +1,6 @@
 <template lang="pug">
     #opportunity-form.form-area
+        p {{ criteria  }}
         .prevCardTab(@click="prevCard", v-show="showPrev")
             span.fa.fa-2x.fa-chevron-left.prevCardTab-chevron
 
@@ -11,18 +12,23 @@
             :subTitle="cards[cardIndex].subTitle",
             :config="cards[cardIndex]",
             :index="cardIndex",
-            :options="cards[cardIndex].options",
+            :options="criteria[cards[cardIndex].type] || cards[cardIndex].options",
             @nextCard="nextCard"
         )
 
 </template>
 
 <script>
+import _ from 'lodash'
+import { mapState } from 'vuex'
+
 import FormCard from './opportunity-form/form-card.vue'
 import FormCardConvictions from './opportunity-form/form-card-convictions.vue'
 import FormCardBoolean from './opportunity-form/form-card-boolean.vue'
 import FormCardMulti from './opportunity-form/form-card-multi.vue'
 import FormCardName from './opportunity-form/form-card-name.vue'
+
+const mapped = mapState(['criteria'])
 
 export default {
     data () {
@@ -35,13 +41,14 @@ export default {
                     component: "form-card-name",
                     title: "Participant",
                     subTitle: "",
-                    options: [
-                    ]
+                    type: "name",
+                    options: []
                 },
                 {
                     component: "form-card-convictions",
                     title: "Conviction History",
                     subTitle: "Which of the following have you been convicted of?",
+                    type: "convictions",
                     options: [
                         "Violent Offense",
                         "Drug Offense",
@@ -54,6 +61,7 @@ export default {
                     component: "form-card-boolean",
                     title: "Driver's License",
                     subTitle: "Do you have a driver's license?",
+                    type: "driversLicense",
                     options: [
                         "Yes",
                         "No"
@@ -63,6 +71,7 @@ export default {
                     component: "form-card-multi",
                     title: "Abilities",
                     subTitle: "Which of the following are you capable of?Which of the following are you capable of?",
+                    type: "abilities",
                     options: [
                         "Caregiving",
                         "Standing 8 hours",
@@ -79,6 +88,7 @@ export default {
                     component: "form-card-boolean",
                     title: "Part-time Availability",
                     subTitle: "Are you solely looking for a part time job?",
+                    type: "availability",
                     options: [
                         "Yes",
                         "No"
@@ -88,6 +98,7 @@ export default {
                     component: "form-card-multi",
                     title: "Industry",
                     subTitle: "Which of the following industries interest you?",
+                    type: "industry",
                     options: [
                         "Administrative",
                         "Building Construction/Skilled Trade",
@@ -120,7 +131,9 @@ export default {
 
         showNext () {
             return this.cardIndex < this.cards.length - 1;
-        }
+        },
+
+        criteria: mapped.criteria
     },
 
     components: {
@@ -153,6 +166,7 @@ export default {
                 this.cardIndex = prevIndex
         }
     },
+
 
   /*created () {},*/
   /*beforeCompile () {},*/
