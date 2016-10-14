@@ -19,6 +19,23 @@
         "..."
     ],
     "driversLicenseRequired": true,
-    "hasOwnTransportation": false,
-    "humanFriendly": {}
+    "humanFriendly": [
+        {
+            "key": "Qualifications",
+            "value": [
+                {
+                    "key": "Job Duties",
+                    "value": "Responsible for ..."
+                },
+                {
+                    "key": "Key Questions to Ask",
+                    "value": "1) Do you have ..."
+                }
+            ]
+        },
+        {
+            "key": "Relevant Experience(s)",
+            "value": "machine operator ..."
+        }
+    ]
 }
