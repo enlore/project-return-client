@@ -1,6 +1,5 @@
 <template lang="pug">
     #opportunity-form.form-area
-        p {{ criteria  }}
         .prevCardTab(@click="prevCard", v-show="showPrev")
             span.fa.fa-2x.fa-chevron-left.prevCardTab-chevron
 
@@ -129,8 +128,10 @@ export default {
 
     methods: {
         doQuery () {
-            let query = this.searchCriteria;
+            let query = _.cloneDeep(this.searchCriteria)
             query.partTimeOnly = query.availability
+            delete query.availability
+
             this.$store.dispatch("fetchResults", query)
         },
 

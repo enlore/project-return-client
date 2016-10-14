@@ -6,6 +6,8 @@
 
         select(v-show="showYear()", v-model="year")
             option(v-for="n in 100", :value="2017 - n") {{ 2017 - n }}
+
+        span(v-show="showYear()", @click="clearYear") clear year
 </template>
 
 <script>
@@ -25,6 +27,10 @@ export default {
     methods: {
         showYear () {
             return this.type !== ""
+        },
+
+        clearYear () {
+            this.year = void 0
         },
 
         doPick () {

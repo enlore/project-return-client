@@ -3,13 +3,14 @@
         .formCard-header.u-text-center
             h2.formCard-title  {{ title }}
             p.formCard-subTitle  {{ subTitle }}
+            p.formCard-hint.
+                Only note the most recent year of a given conviction.
 
         .formCard-checklist
-            template(v-for="c in convictions")
-                conviction-group(@donePicked="updateSelection",
-                    v-for="c in convictions",
-                    :option="c"
-                )
+            conviction-group(@donePicked="updateSelection",
+                v-for="option in convictions",
+                :option="option"
+            )
 
         button.btn.btn--primary.btn--center(@click="nextCard") Next
 
