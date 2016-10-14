@@ -33,9 +33,8 @@ export default {
             cards: [
                 {
                     component: "form-card-name",
-                    title: "Name",
+                    title: "Participant",
                     subTitle: "",
-                    type: "convictions",
                     options: [
                     ]
                 },
@@ -43,7 +42,6 @@ export default {
                     component: "form-card-convictions",
                     title: "Conviction History",
                     subTitle: "Which of the following have you been convicted of?",
-                    type: "convictions",
                     options: [
                         "Violent Offense",
                         "Drug Offense",
@@ -54,19 +52,8 @@ export default {
                 },
                 {
                     component: "form-card-boolean",
-                    title: "Part-time Availability",
-                    subTitle: "Are you solely looking for a part time job?",
-                    type: "convictions",
-                    options: [
-                        "Yes",
-                        "No"
-                    ]
-                },
-                {
-                    component: "form-card-boolean",
                     title: "Driver's License",
                     subTitle: "Do you have a driver's license?",
-                    type: "convictions",
                     options: [
                         "Yes",
                         "No"
@@ -76,7 +63,6 @@ export default {
                     component: "form-card-multi",
                     title: "Abilities",
                     subTitle: "Which of the following are you capable of?Which of the following are you capable of?",
-                    type: "convictions",
                     options: [
                         "Caregiving",
                         "Standing 8 hours",
@@ -90,10 +76,18 @@ export default {
                     ]
                 },
                 {
+                    component: "form-card-boolean",
+                    title: "Part-time Availability",
+                    subTitle: "Are you solely looking for a part time job?",
+                    options: [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
                     component: "form-card-multi",
                     title: "Industry",
                     subTitle: "Which of the following industries interest you?",
-                    type: "convictions",
                     options: [
                         "Administrative",
                         "Building Construction/Skilled Trade",
