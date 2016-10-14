@@ -6,13 +6,10 @@
 
         .formCard-checklist
             template(v-for="c in convictions")
-                .checklist-group
-                    label()
-                        input(type="checkbox", :value="c", v-model="selection")
-                        span {{ c }}
-
-                    select(v-show="showYear(c)", v-model="years")
-                        option(v-for="n in 100", :value="2017 - n") {{ 2017 - n }}
+                conviction-group(@donePicked="updateSelection",
+                    v-for="c in convictions",
+                    :option="c"
+                )
 
         button.btn.btn--primary.btn--center(@click="nextCard") Next
 
@@ -32,10 +29,12 @@ export default {
 
     watch: {
         selection () {
+            /*
             this.$emit("formInput", {
                 type: this.type,
                 data: this.selection
             })
+            */
         }
     },
 
@@ -48,13 +47,32 @@ export default {
         "subTitle"
     ],
 
+    components: {
+        'conviction-group': ConvictionGroup
+    },
+
     computed: {
         convictions: mapState(['convictions']).convictions
     },
 
     methods: {
-        showYear (conviction) {
-            return this.selection.indexOf(conviction) !== -1;
+        updateSelection (data) {
+            let found = false
+
+            this.selection.forEach((item, i) => {
+                if (item.type === data.type) {
+                    this.selection[i] = data
+                    found = true
+                }
+            })
+
+            if (!found)
+                this.selection.push(data)
+
+            this.$emit("formInput", {
+                type: this.type,
+                data: this.selection
+            })
         },
 
         nextCard () {

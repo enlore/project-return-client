@@ -18,6 +18,8 @@
             @nextCard="nextCard"
         )
 
+        button(@click="doQuery") Submit
+
 </template>
 
 <script>
@@ -40,7 +42,7 @@ export default {
             cardIndex: 0,
             searchCriteria: {
                 name: {},
-                convictions: [],
+                convictions: [], // { type: '', year: # }
                 driversLicense: false,
                 abilities: [],
                 industry: [],
@@ -126,8 +128,9 @@ export default {
     },
 
     methods: {
-        postQuery () {
+        doQuery () {
             let query = this.searchCriteria;
+            query.partTimeOnly = query.availability
             this.$store.dispatch("fetchResults", query)
         },
 

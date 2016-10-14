@@ -17,7 +17,8 @@ const store = new Vuex.Store({
     state,
     actions: {
         fetchCriteria,
-        fetchOpps
+        fetchOpps,
+        fetchResults
     },
     mutations 
 })

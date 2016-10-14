@@ -1,5 +1,5 @@
 /* global laxcomma:true */
-import { getCriteria, getOpps } from '../ajax.js'
+import { getCriteria, getOpps, postQuery } from '../ajax.js'
 
 export function fetchCriteria (ctx) {
     console.info("fetch it")
@@ -17,7 +17,6 @@ export function fetchOpps (ctx) {
     console.info("fetch opps")
 
     getOpps((err, opps) => {
-        console.info(opps)
     })
 }
 
