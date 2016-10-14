@@ -41,7 +41,15 @@ html, body {
     padding: 36px 72px;
     max-width: 800px;
     margin-top: 32px;
-    min-height: 450px;
+    min-height: 500px;
+}
+
+// lazy hack here
+.formCard .btn.btn--primary {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .formCard-boolGroup {
