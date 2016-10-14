@@ -1,7 +1,10 @@
 <template lang="pug">
     #opportunity-form.form-area
-        .prevCardTab(@click="prevCard")
-            span back
+        .prevCardTab(@click="prevCard", v-show="showPrev")
+            span.fa.fa-chevron
+
+        .nextCardTab(v-show="showNext")
+            //span next
 
         component( :is="currentCard",
             :title="cards[cardIndex].title",
@@ -41,16 +44,13 @@ export default {
                     ]
                 },
                 {
-                    component: "form-card-convictions",
-                    title: "Conviction History 2",
-                    subTitle: "Which of the following have you been convicted of?",
+                    component: "form-card-boolean",
+                    title: "Part-time Availability",
+                    subTitle: "Are you solely looking for a part time job?",
                     type: "convictions",
                     options: [
-                        "Violent Offense",
-                        "Drug Offense",
-                        "Sex Offense",
-                        "Theft",
-                        "Arson"
+                        "Yes",
+                        "No"
                     ]
                 },
                 {
@@ -65,8 +65,8 @@ export default {
                 },
                 {
                     component: "form-card-multi",
-                    title: "Driver's License",
-                    subTitle: "Do you have a driver's license?",
+                    title: "Abilities",
+                    subTitle: "Which of the following are you capable of?Which of the following are you capable of?",
                     type: "convictions",
                     options: [
                         "Caregiving",
@@ -110,6 +110,14 @@ export default {
         currentCard () {
             return this.cards[this.cardIndex].component
         },
+
+        showPrev () {
+            return this.cardIndex > 0;
+        },
+
+        showNext () {
+            return this.cardIndex < this.cards.length - 1;
+        }
     },
 
     components: {
@@ -123,8 +131,11 @@ export default {
         toggleYearSelect () {},
 
 
-        nextCard (index) { 
+        nextCard () { 
+            let index = this.cardIndex
+
             console.info("Next card call:", index)
+
             let nextIndex = index + 1
 
             if (nextIndex < this.cards.length)
@@ -163,6 +174,18 @@ export default {
     background-color: white;
     cursor: pointer;
     border-radius: 0 5px 5px 0;
+}
+
+.nextCardTab {
+    height: 400px;
+    width: 60px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
 }
 </style>
 
