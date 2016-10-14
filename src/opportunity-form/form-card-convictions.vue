@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import ConvictionGroup from './conviction-group.vue'
+
 export default {
     data () {
         return {

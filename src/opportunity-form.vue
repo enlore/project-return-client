@@ -1,7 +1,7 @@
 <template lang="pug">
     #opportunity-form.form-area
         .prevCardTab(@click="prevCard", v-show="showPrev")
-            span.fa.fa-chevron
+            span.fa.fa-2x.fa-chevron-left.prevCardTab-chevron
 
         .nextCardTab(v-show="showNext")
             //span next
@@ -186,6 +186,13 @@ export default {
     background-color: white;
     cursor: pointer;
     border-radius: 5px 0 0 5px;
+}
+
+.prevCardTab-chevron {
+    position: absolute;;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 </style>
 
